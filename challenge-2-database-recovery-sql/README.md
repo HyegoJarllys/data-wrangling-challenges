@@ -9,7 +9,7 @@ answers five business questions.
 | 1 | Recover the corrupted data | JavaScript (Node.js) |
 | 2 | Build the sales report | SQL (SQLite) |
 
-## Phase 1 — Data recovery (`fix_database.js`)
+## Phase 1 - Data recovery (`fix_database.js`)
 
 A two-layer sanitation pipeline over `database/broken_database_*.json`:
 
@@ -23,7 +23,7 @@ A two-layer sanitation pipeline over `database/broken_database_*.json`:
 
 **Deliberate non-decision:** no global lower/upper-casing and no brand canonicalization via
 lookup. Casing carries semantic information (acronyms, proper nouns); case-insensitive
-matching belongs in the *query* (`LOWER()`), not in stored data — **canonical data at rest,
+matching belongs in the *query* (`LOWER()`), not in stored data - **canonical data at rest,
 normalization at match time**.
 
 Conservative numeric coercion uses `^-?\d+(\.\d+)?$` so values like `"2022-01-01"` are never
@@ -35,7 +35,7 @@ is split into single-responsibility functions: `lerArquivo` / `corrigirDados` /
 node fix_database.js   # reads broken_database_*.json → writes fixed_database_*.json
 ```
 
-## Phase 2 — SQL report
+## Phase 2 - SQL report
 
 | File | Purpose |
 |------|---------|
@@ -45,7 +45,7 @@ node fix_database.js   # reads broken_database_*.json → writes fixed_database_
 | `04_analises.sql` | 5 analytical queries answering the business questions |
 
 **Modeling decisions**
-- **`CREATE TABLE AS SELECT` instead of a `VIEW`** — materialized result, exportable to CSV without re-running the join.
+- **`CREATE TABLE AS SELECT` instead of a `VIEW`** - materialized result, exportable to CSV without re-running the join.
 - **Materialized derived columns** (`receita`, `ano`, `mes`, `faixa_preco_*`) to simplify and speed up the analytics queries.
 - **The join resolves a fact/dimension key quirk** (`id_marca_` vs `id_marca`); the final table exposes only `id_marca`.
 - **Indexes** on the common `GROUP BY` columns (`marca`, `veiculo`, `faixa_preco_inicio`).
@@ -59,7 +59,7 @@ sqlite3 demo.db < 04_analises.sql
 
 ## Reproducible tooling
 
-`tools/` regenerates the SQL and the report from the fixed JSON — useful when the source
+`tools/` regenerates the SQL and the report from the fixed JSON - useful when the source
 data changes. Not required to run the challenge.
 
 `database/relatorio_vendas.csv` is a reference export of the final reporting table.

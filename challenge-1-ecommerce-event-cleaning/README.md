@@ -1,13 +1,13 @@
 # Challenge 1 · E-commerce Event Cleaning
 
 Sanitize a **GA4 / Google Tag Manager `dataLayer` purchase event** *before* it is sent to
-reporting. The raw event carries intentional inconsistencies — duplicate items,
+reporting. The raw event carries intentional inconsistencies - duplicate items,
 heterogeneous price formats, incomplete items, and a missing total `value`. A chain of four
 **pure functions** cleans it step by step.
 
 ## Input
 
-`data/compra.js` — a standard GA4 `purchase` event (kept intact, never mutated). The
+`data/compra.js` - a standard GA4 `purchase` event (kept intact, never mutated). The
 `items[]` array contains 13 products with deliberate problems:
 
 | Problem | Example |
@@ -46,9 +46,9 @@ Node.js ≥ 18 required (for `String.prototype.replaceAll`).
 
 ## Key decisions
 
-- **Immutability** — every function returns a new array via spread / `map` / `filter`; the original event is never mutated (verified at runtime at the end of each script).
-- **Pure functions** — no globals, no I/O, no side effects.
-- **Monetary rounding** — `Math.round(n * 100) / 100` to avoid float drift on the total.
-- **CommonJS** — for maximum portability across Node versions.
+- **Immutability** - every function returns a new array via spread / `map` / `filter`; the original event is never mutated (verified at runtime at the end of each script).
+- **Pure functions** - no globals, no I/O, no side effects.
+- **Monetary rounding** - `Math.round(n * 100) / 100` to avoid float drift on the total.
+- **CommonJS** - for maximum portability across Node versions.
 
 Detailed per-step write-ups live in [`reports/`](reports).

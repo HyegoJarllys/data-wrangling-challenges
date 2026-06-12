@@ -1,7 +1,7 @@
 # Data Wrangling Challenges
 
 Two focused **data-engineering challenges** that take messy, real-world-shaped input and
-turn it into clean, analytics-ready output — emphasizing **correctness, immutability and
+turn it into clean, analytics-ready output - emphasizing **correctness, immutability and
 explicit engineering decisions** over cleverness.
 
 Each challenge ships runnable code, the input/output data, and a short technical report
@@ -18,11 +18,11 @@ explaining *why* each decision was made.
 
 These are small problems, but they are solved the way production data work *should* be:
 
-- **Immutability by default** — transformations return new structures; source data is never mutated.
-- **Pure, composable functions** — each step has a single responsibility and chains into the next.
-- **Canonical data at rest, normalization at query time** — casing/semantic info is preserved in storage; case-insensitive matching is done in the query (`LOWER()`), not baked into the data.
-- **Conservative type coercion** — numeric strings become numbers only when unambiguous (regex-guarded so dates like `"2022-01-01"` are never mis-parsed).
-- **Decisions are documented, not implied** — every non-obvious choice has a rationale in the per-challenge report.
+- **Immutability by default** - transformations return new structures; source data is never mutated.
+- **Pure, composable functions** - each step has a single responsibility and chains into the next.
+- **Canonical data at rest, normalization at query time** - casing/semantic info is preserved in storage; case-insensitive matching is done in the query (`LOWER()`), not baked into the data.
+- **Conservative type coercion** - numeric strings become numbers only when unambiguous (regex-guarded so dates like `"2022-01-01"` are never mis-parsed).
+- **Decisions are documented, not implied** - every non-obvious choice has a rationale in the per-challenge report.
 
 ---
 
@@ -56,4 +56,4 @@ sqlite3 demo.db < 04_analises.sql          # answers the 5 business questions
 The datasets here are anonymized/synthetic e-commerce data used purely to demonstrate
 technique. The per-challenge `reports/` folders contain the detailed write-ups.
 
-*Author: **Hyego Maia** — Junior AI / Data Engineer · [GitHub](https://github.com/HyegoJarllys) · [LinkedIn](https://www.linkedin.com/in/hyego-maia-640ba0343)*
+*Author: **Hyego Maia** - Junior AI / Data Engineer · [GitHub](https://github.com/HyegoJarllys) · [LinkedIn](https://www.linkedin.com/in/hyego-maia-640ba0343)*
