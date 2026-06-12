@@ -1,3 +1,7 @@
+> Note: this repository has been consolidated into [data-engineering-foundations](https://github.com/HyegoJarllys/data-engineering-foundations) as part of a single, curated data-engineering trail. See the new repo for the maintained version.
+
+---
+
 # Data Wrangling Challenges
 
 Two focused **data-engineering challenges** that take messy, real-world-shaped input and
